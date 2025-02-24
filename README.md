@@ -3,6 +3,75 @@
 **Deadline**: Sunday, Feb 23th 11:59 pm PST
 
 ---
+## 1. Setting Up the Database
+
+### **Install PostgreSQL**
+Make sure **PostgreSQL** is installed on your system.  
+If you don’t have it installed, download it from:  
+🔗 [PostgreSQL Official Website](https://www.postgresql.org/download/)  
+
+On **macOS** (Homebrew):
+bash
+brew install postgresql
+brew services start postgresql
+
+## 2. Create the database
+
+Run the following command to create the database:
+
+createdb -U postgres task_management_db
+
+If using psql, log in:
+
+psql -U postgres
+CREATE DATABASE task_management_db;
+
+## 3. Run Migrations
+psql -U postgres -d task_management_db -f migrations.sql
+
+## 3. Setup environment variables
+
+Create a .env file in the backend directory:
+
+DATABASE_URL=postgres://postgres:yourpassword@localhost:5432/task_management_db
+
+JWT_SECRET=some_jwt_code
+
+PORT=5001
+
+Replace yourpassword with your actual PostgreSQL password.
+
+## Running Backend
+
+cd backend
+
+npm install
+
+npm run dev
+
+## Running frontend
+cd frontend
+
+npm install
+
+Create .env file inside frontend root folder with content:
+REACT_APP_API_URL=http://localhost:5001
+
+npm start
+
+## Testing
+Simply open the frontend at http://localhost:3000
+
+Use the register, login, create tasks, delete task features as intended
+
+### Video Demo
+https://youtu.be/pOjZunU406s
+
+## Salary Expectations
+
+Expected monthly salary: $4000
+
+If working full time
 
 ## Overview
 
